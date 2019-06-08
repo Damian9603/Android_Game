@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e231dddb0f3d5bc4aa5373f7463bb558, type: 3}
+  m_Name: Strike
+  m_EditorClassIdentifier: 
+  Name: Strike
+  description: Powerfull hit with melee weapon
+  icon: {fileID: 21300000, guid: 65d211f55b476254ea778e5c4d2e5735, type: 3}
+  iconButton: {fileID: 21300000, guid: 375f932ead0237643a9c4620bbad7273, type: 3}
+  required: strenght
+  value: 10
+  gives: 020000000000000001000000000000000000000000000000
+  pdamage: 15
+  mdamage: 0
+  heal: 0
+  scale: 1.3
+  cooldown: 10
+  manaCost: 15
+  range: 3
