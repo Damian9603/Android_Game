@@ -39,38 +39,39 @@ public class Equipment : Item
         {
             desc += "\nDamage: " + minDamageModifier + "-" + maxDamageModifier;
         }
-        if(armorModifier>0)
+        if(armorModifier!=0)
         {
             desc += "\nPhysical Armour: " + armorModifier;
         }
-        if(magicResistModifier>0)
+        if(magicResistModifier!=0)
         {
             desc += "\nMagic Armour: " + magicResistModifier;
         }
-        if(strenghtModifier>0)
+        if(strenghtModifier!=0)
         {
             desc += "\nStrenght: +" + strenghtModifier;
         }
-        if(agilityModifier>0)
+        if(agilityModifier!=0)
         {
             desc += "\nAgility: +" + agilityModifier;
         }
-        if (constitutionModifier > 0)
+        if (constitutionModifier != 0)
         {
             desc += "\nConstitution: +" + constitutionModifier;
         }
-        if(intelligenceModifier>0)
+        if(intelligenceModifier!=0)
         {
             desc += "\nInteligence: +" + intelligenceModifier;
         }
-        if (wisdomModifier > 0)
+        if (wisdomModifier != 0)
         {
             desc += "\nWisdom: +" + wisdomModifier;
         }
-        if(charismaModifier>0)
+        if(charismaModifier!=0)
         {
             desc += "\nCharisma: +" + charismaModifier;
         }
+        desc += "\nValue: " + value + " gold";
         return desc;
     }
 }

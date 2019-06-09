@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Shop : MonoBehaviour
 {
-    public bool wear = true;
     #region Singleton
-    public static Inventory instance;
+    public static Shop instance;
 
     public void Awake()
     {
-        if(instance != null)
+        if (instance != null)
         {
-            Debug.LogWarning("More than one instance of Inventory found!");
+            Debug.LogWarning("More than one instance of Shop found!");
             return;
         }
         instance = this;
@@ -23,28 +22,28 @@ public class Inventory : MonoBehaviour
 
     public OnItemChanged onItemChangedCallback;
 
-    public int space = 20;
+    public int space = 12;
     public List<Item> items = new List<Item>();
 
-    public bool Add (Item item)
+    public bool Add(Item item)
     {
-        if(!item.isDefaultItem)
+        if (!item.isDefaultItem)
         {
-            if(items.Count >=space)
+            if (items.Count >= space)
             {
                 Debug.Log("Not enough room.");
                 return false;
             }
             items.Add(item);
 
-            if(onItemChangedCallback != null)
+            if (onItemChangedCallback != null)
             {
                 onItemChangedCallback.Invoke();
             }
         }
         return true;
     }
-    public void Remove (Item item)
+    public void Remove(Item item)
     {
         items.Remove(item);
         if (onItemChangedCallback != null)

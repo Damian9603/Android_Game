@@ -38,15 +38,23 @@ public class InventorySlot : MonoBehaviour
             panel.GetComponentInChildren<Text>().text = item.GetDescription();
             panel.GetComponentsInChildren<Image>()[1].sprite = item.icon;
             Button[] buttons = panel.GetComponentsInChildren<Button>();
-            if(item.tag== "equipment")
+            if (!Inventory.instance.wear)
             {
-                buttons[0].GetComponentInChildren<Text>().text = "Wear";
-                buttons[1].GetComponentInChildren<Text>().text = "Don't wear";
+                buttons[0].GetComponentInChildren<Text>().text = "Sell";
+                buttons[1].GetComponentInChildren<Text>().text = "Don't sell";
             }
-            else
+            if (Inventory.instance.wear)
             {
-                buttons[0].GetComponentInChildren<Text>().text = "Use";
-                buttons[1].GetComponentInChildren<Text>().text = "Don't use";
+                if (item.tag == "equipment")
+                {
+                    buttons[0].GetComponentInChildren<Text>().text = "Equip";
+                    buttons[1].GetComponentInChildren<Text>().text = "Don't equip";
+                }
+                else
+                {
+                    buttons[0].GetComponentInChildren<Text>().text = "Use";
+                    buttons[1].GetComponentInChildren<Text>().text = "Don't use";
+                }
             }
             panel.GetComponent<InventoryPanel>().item = item;
         }

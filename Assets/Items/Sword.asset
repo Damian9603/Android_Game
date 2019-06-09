@@ -17,6 +17,7 @@ MonoBehaviour:
   isDefaultItem: 0
   tag: equipment
   description: 
+  value: 100
   equipSlot: 3
   mesh: {fileID: 7171119477549989068, guid: fe6e329b0e4f5334d9f71d2a6dd89c6d, type: 3}
   coveredMeshRegions: 

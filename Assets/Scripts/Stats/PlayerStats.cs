@@ -13,6 +13,8 @@ public class PlayerStats : CharacterStats
     public int avaiblePoints;
     public int skillPoints;
 
+    public int gold;
+
     public Spell[] spellList;
     private int whichSlot;
     public void whichSpell(int i)
@@ -232,6 +234,8 @@ public class PlayerStats : CharacterStats
     public Text pArmor;
     public Text mArmor;
     public Text skillPoint;
+    public Text goldT;
+    public Text[] invPanel;
 
     private int maxpoints = 10;
     protected int[] stats = { 8, 8, 8, 8, 8, 8 };
@@ -260,6 +264,7 @@ public class PlayerStats : CharacterStats
             mArmor.text = magicResist.baseValue.ToString();
 
             skillPoint.text = skillPoints.ToString();
+            goldT.text = gold.ToString();
         }
         maxHealth = startHP + condition.GetValue() * 10 + level * 5;
         maxMana = startMana + wisdom.GetValue() * 10;

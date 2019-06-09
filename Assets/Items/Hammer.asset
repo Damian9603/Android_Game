@@ -17,16 +17,17 @@ MonoBehaviour:
   isDefaultItem: 0
   tag: equipment
   description: 
+  value: 300
   equipSlot: 3
   mesh: {fileID: -2494698595586082384, guid: fbd76fd1dc4fe804d9a6a93db885aa9d, type: 3}
   coveredMeshRegions: 
-  minDamageModifier: 0
-  maxDamageModifier: 0
+  minDamageModifier: 5
+  maxDamageModifier: 10
   armorModifier: 0
   magicDamageModifier: 0
   magicResistModifier: 0
-  strenghtModifier: 0
-  agilityModifier: 0
+  strenghtModifier: 3
+  agilityModifier: -1
   constitutionModifier: 0
   intelligenceModifier: 0
   wisdomModifier: 0

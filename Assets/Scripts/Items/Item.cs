@@ -8,6 +8,7 @@ public class Item : ScriptableObject
     public bool isDefaultItem = false;
     public string tag = "";
     public string description;
+    public int value;
 
     public virtual void Use()
     {

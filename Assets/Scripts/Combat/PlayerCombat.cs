@@ -8,7 +8,7 @@ public class PlayerCombat : CharacterCombat
     public CharacterStats playerStats;
     public PlayerController controller;
     new public event System.Action OnAttack;
-    float[] cooldowns;
+    private float[] cooldowns;
     protected override void Start()
     {
         base.Start();
