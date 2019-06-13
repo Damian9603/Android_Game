@@ -235,7 +235,6 @@ public class PlayerStats : CharacterStats
     public Text mArmor;
     public Text skillPoint;
     public Text goldT;
-    public Text[] invPanel;
 
     private int maxpoints = 10;
     protected int[] stats = { 8, 8, 8, 8, 8, 8 };
@@ -411,11 +410,13 @@ public class PlayerStats : CharacterStats
     public void AddExp(int amount)
     {
         currentExp += amount;
-        if (currentExp > nextLevelExp)
+        while (currentExp > nextLevelExp)
         {
+            avaiblePoints += 3 + stats[3] / (15 * level / 4);
             level++;
             currentExp -= nextLevelExp;
             nextLevelExp *= 2;
+            skillPoints++;
         }
         Change(nextLevelExp, currentExp, 'e');
         UpdateUI();

@@ -16,7 +16,6 @@ public class InventoryPanel : MonoBehaviour
             Inventory.instance.Remove(item);
             Shop.instance.Add(item);
         }
-
         this.gameObject.SetActive(false);
     }
     public void OnDont()
@@ -33,11 +32,6 @@ public class InventoryPanel : MonoBehaviour
             Inventory.instance.Add(item);
             Shop.instance.Remove(item);
         }
-        this.gameObject.SetActive(false);
-    }
-    public void OnSale()
-    {
-        
         this.gameObject.SetActive(false);
     }
 }

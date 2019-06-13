@@ -9,6 +9,7 @@ TagManager:
   - healButton
   - Item
   - NPC
+  - Chest
   layers:
   - Default
   - TransparentFX

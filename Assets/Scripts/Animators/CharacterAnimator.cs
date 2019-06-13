@@ -41,6 +41,10 @@ public class CharacterAnimator : MonoBehaviour
     {
         animator.SetTrigger("attack");
         int attackIndex = Random.Range(0, currentAttackAnimSet.Length);
-        overrideController[replacableAttackAnim.name] = currentAttackAnimSet[attackIndex];
+        if(currentAttackAnimSet.Length>0)
+        {
+            overrideController[replacableAttackAnim.name] = currentAttackAnimSet[attackIndex];
+        }
+        
     }
 }

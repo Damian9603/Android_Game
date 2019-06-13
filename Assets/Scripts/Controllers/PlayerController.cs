@@ -11,8 +11,6 @@ public class PlayerController : MonoBehaviour {
     public Interactable focus;
     PlayerMotor motor;
     public CameraController cameraController;
-    private float holdTime = 1f; 
-    private float acumTime = 0f;
     // Use this for initialization
     void Start () {
         cam = Camera.main;
@@ -29,42 +27,6 @@ public class PlayerController : MonoBehaviour {
         {
             return;
         }
-       /*if(Input.touchCount==1)
-        {
-            acumTime += Input.GetTouch(0).deltaTime;
-            if(acumTime >= holdTime)
-            {
-                Touch touch = Input.GetTouch(0);
-                Ray ray = cam.ScreenPointToRay(touch.position);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit, 100))
-                {
-                    Interactable interactable = hit.collider.GetComponent<Interactable>();
-                    if (interactable != null)
-                    {
-                        SetFocus(interactable);
-                    }
-                }
-
-            }
-            else if(Input.GetTouch(0).phase == TouchPhase.Ended && acumTime < holdTime)
-            {
-                Touch touch = Input.GetTouch(0);
-                Ray ray = cam.ScreenPointToRay(touch.position);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit, 100, movementMask))
-                {
-                    motor.MoveToPoint(hit.point);
-                    RemoveFocus();
-                }
-                acumTime = 0;
-                
-            }
-        }
-        else
-        {
-            acumTime = 0;
-        }*/
 
        if(Input.GetMouseButtonDown(0))
         {

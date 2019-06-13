@@ -9,8 +9,8 @@ public class Potion : Item
     {
         base.Use();
         PlayerStats stats = PlayerManager.instance.player.GetComponent<PlayerStats>();
-        stats.AddHP(healthAmount);
-        stats.AddMana(manaAmount);
+        stats.AddHP(healthAmount + (PlayerManager.instance.player.GetComponent<PlayerStats>().maxHealth - PlayerManager.instance.player.GetComponent<PlayerStats>().currentHealth) * healthAmount / 100);
+        stats.AddMana(manaAmount + (PlayerManager.instance.player.GetComponent<PlayerStats>().maxMana - PlayerManager.instance.player.GetComponent<PlayerStats>().currentMana) * manaAmount / 100);
         RemoveFormInventory();
     }
     public override string GetDescription()

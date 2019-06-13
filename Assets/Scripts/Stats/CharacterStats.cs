@@ -89,8 +89,7 @@ public class CharacterStats : MonoBehaviour
 
     public virtual void Die()
     {
-        //Die in some way;
-        Debug.Log(transform.name + " died.");
+
     }
 
 }

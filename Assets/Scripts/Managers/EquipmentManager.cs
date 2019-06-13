@@ -14,9 +14,7 @@ public class EquipmentManager : MonoBehaviour
     #endregion
 
     public Equipment[] defaultItems;
-    public SkinnedMeshRenderer targetMesh;
     public Equipment[] currentEquipment;
-    SkinnedMeshRenderer[] currentMeshes;
     Inventory inventory;
     public EqtSlot[] eqtSlots = new EqtSlot[6];
 
@@ -29,10 +27,6 @@ public class EquipmentManager : MonoBehaviour
         inventory = Inventory.instance;
         int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
         currentEquipment = new Equipment[numSlots];
-        currentMeshes = new SkinnedMeshRenderer[numSlots];
-
-        EquipDefaultItems();
-        
     }
 
     public void Equip(Equipment newItem)
@@ -53,23 +47,13 @@ public class EquipmentManager : MonoBehaviour
         SetEquipmentBlendShapes(newItem, 100);
         currentEquipment[slotIndex] = newItem;
         eqtSlots[slotIndex].AddItem(currentEquipment[slotIndex]);
-        SkinnedMeshRenderer newMesh = Instantiate<SkinnedMeshRenderer>(newItem.mesh);
-        newMesh.transform.parent = targetMesh.transform;
 
-        newMesh.bones = targetMesh.bones;
-        newMesh.rootBone = targetMesh.rootBone;
-        currentMeshes[slotIndex] = newMesh;
     }
 
     public void Unequip (int slotIndex)
     {
         if(currentEquipment[slotIndex]!=null)
         {
-            if(currentMeshes[slotIndex] != null)
-            {
-                Destroy(currentMeshes[slotIndex].gameObject);
-
-            }
             Equipment oldItem = currentEquipment[slotIndex];
             SetEquipmentBlendShapes(oldItem, 0);
             inventory.Add(oldItem);
@@ -79,17 +63,7 @@ public class EquipmentManager : MonoBehaviour
                 onEquipmentChanged.Invoke(null, oldItem);
             }
             //return oldItem;
-            if ((int)oldItem.equipSlot != 3 && (int)oldItem.equipSlot != 4)
-            {
-                if((int)oldItem.equipSlot < 4)
-                {
-                    EquipDefaultItem((int)oldItem.equipSlot);
-                }
-                else
-                {
-                    EquipDefaultItem(3);
-                }
-            }
+
             
         }
         //return null;
@@ -101,26 +75,15 @@ public class EquipmentManager : MonoBehaviour
         {
             Unequip(i);
         }
-        EquipDefaultItems();
     }
 
     void SetEquipmentBlendShapes(Equipment item, int weight)
     {
-        foreach(EquipmentMeshRegion blendShape in item.coveredMeshRegions)
+        /*foreach(EquipmentMeshRegion blendShape in item.coveredMeshRegions)
         {
             targetMesh.SetBlendShapeWeight((int)blendShape, weight);
-        }
+        }*/
     }
 
-    void EquipDefaultItems()
-    {
-        foreach(Equipment item in defaultItems)
-        {
-            Equip(item);
-        }
-    }
-    void EquipDefaultItem(int index)
-    {
-        Equip(defaultItems[index]);
-    }
+
 }

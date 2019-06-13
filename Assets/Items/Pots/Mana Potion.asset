@@ -16,5 +16,15 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 7067724cf6507f045ab5f3aeaf39041b, type: 3}
   isDefaultItem: 0
   tag: mana
+  description: '
+
+    Adds Mana: 10
+
+    Adds Mana: 10
+
+    Adds Mana: 10
+
+    Adds Mana: 10'
+  value: 20
   healthAmount: 0
   manaAmount: 10
